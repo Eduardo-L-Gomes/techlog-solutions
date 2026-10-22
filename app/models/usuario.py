@@ -1,0 +1,12 @@
+from pydantic import BaseModel
+
+class Usuario(BaseModel):
+    id_: int
+    nome: str
+    email: str
+    senha: str
+
+class UsiarioCriarAtualizar(BaseModel):
+    nome: str
+    email: str
+    senha: str | None = None
