@@ -24,7 +24,7 @@
         
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">{{ 'Atualizar' if cliente else 'Cadastrar' }} Cliente</button>
-            <a href="/clientes" class="btn btn-secondary">Cancelar</a>
+            <a href="/api/clientes" class="btn btn-secondary">Cancelar</a>
         </div>
     </form>
 </div>
@@ -32,7 +32,7 @@
 <script>
 // Define se é edição ou criação
 const isEdit = {{ 'true' if cliente else 'false' }};
-const clienteId = {{ cliente.id if cliente else 'null' }};
+const clienteId = {{ cliente.id_ if cliente else 'null' }};
 
 document.getElementById('formCliente').addEventListener('submit', async (e) => {
     e.preventDefault();
