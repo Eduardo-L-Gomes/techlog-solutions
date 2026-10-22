@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from app.routes import cliente, login
+from app.routes import cliente, login, registro
 
 templates = Jinja2Templates(directory="templates")
 
@@ -17,6 +17,8 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(cliente.router)
 app.include_router(cliente.front_router)
+
+app.include_router(registro.router)
 
 app.include_router(login.router)
 

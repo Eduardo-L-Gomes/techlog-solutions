@@ -4,9 +4,9 @@ class Usuario(BaseModel):
     id_: int
     nome: str
     email: str
-    senha: str
+    senha: str | None = None
 
-class UsiarioCriarAtualizar(BaseModel):
+class UsuarioCriarAtualizar(BaseModel):
     nome: str
     email: str
     senha: str | None = None
