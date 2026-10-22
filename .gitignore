@@ -1,0 +1,11 @@
+venv
+
+__pycache__
+*.pyc
+script-assincrono.py
+script-sincrono.py
+
+.env
+
+*.db
+

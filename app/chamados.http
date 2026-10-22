@@ -1,0 +1,30 @@
+GET http://localhost:8000/clientes
+
+###
+
+GET http://localhost:8000/clientes/4
+
+###
+
+POST http://localhost:8000/clientes
+Content-Type: application/json
+
+{
+    "nome": "Teste",
+    "email": "teste@email.com",
+    "telefone": "54213123213"
+}
+
+###
+
+PUT http://localhost:8000/clientes/4
+Content-Type: application/json
+
+{
+    "nome": "adasdadasd",
+    "email": "22@emawdail.com",
+    "telefone": "41313223123"
+}
+
+###
+DELETE http://localhost:8000/clientes/3
