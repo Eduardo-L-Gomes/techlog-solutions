@@ -14,6 +14,7 @@ app = FastAPI(
 )
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
+app.add_middleware()
 
 app.include_router(cliente.router)
 app.include_router(cliente.front_router)
