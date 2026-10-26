@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
@@ -30,3 +30,9 @@ async def health_check():
 @app.get("/", response_class=HTMLResponse)
 async def front_page(request: Request):
     return templates.TemplateResponse(request=request, name="index.html", context={"titulo": "Techlog Solutions CRM", "version": "1.0.0"})
+
+@app.get("/logout")
+async def logout():
+    response = RedirectResponse(url="/login", status_code=303)
+    response.delete_cookie("session_token")
+    return response
