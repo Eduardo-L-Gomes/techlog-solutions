@@ -35,4 +35,12 @@ class DBLocal():
                     telefone TEXT NOT NULL
                 )
             ''')
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS usuarios (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    nome TEXT NOT NULL,
+                    email TEXT NOT NULL,
+                    senha TEXT NOT NULL
+                )
+            ''')
         print("Banco de dados iniciado.")

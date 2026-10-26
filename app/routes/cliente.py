@@ -66,3 +66,16 @@ async def deletar_cliente(
 async def pagina_listar_clientes(request: Request, cliente_repositorio: Annotated[ClientRepository, Depends(obter_cliente_repositorio)]):
     clientes = await cliente_repositorio.listar_clientes()
     return templates.TemplateResponse(request=request, name="clientes.html", context={"titulo": "Techlog Solutions CRM", "version": "1.0.0", "clientes": clientes})
+
+@front_router.get("/novo", response_class=HTMLResponse)
+async def pagina_criar_cliente(request: Request):
+    return templates.TemplateResponse(request=request, name="clientes-form.html", context={"request": request})
+
+@front_router.get("/{cliente_id}", response_class=HTMLResponse)
+async def pagina_editar_cliente(
+    request: Request,
+    cliente_id: int,
+    cliente_repositorio: Annotated[ClientRepository, Depends(obter_cliente_repositorio)]
+):
+    cliente = await cliente_repositorio.obter_cliente(cliente_id)
+    return templates.TemplateResponse(request=request, name="clientes-form.html", context={"cliente_id": cliente_id, "cliente": cliente})

@@ -24,8 +24,8 @@
             <tbody>
                 {% for cliente in clientes %}
                 <tr>
-                    <td>{{ cliente.id }}</td>
-                    <td><a href="/clientes/{{ cliente.id }}">{{ cliente.nome }}</a></td>
+                    <td>{{ cliente.id_ }}</td>
+                    <td><a href="/clientes/{{ cliente.id_ }}">{{ cliente.nome }}</a></td>
                     <td>{{ cliente.email }}</td>
                     <td>{{ cliente.telefone }}</td>
                 </tr>
